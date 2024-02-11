@@ -1,6 +1,12 @@
+import 'package:app/routes/home.dart';
+import 'package:app/stores/my_titles_store.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+GetIt get getIt => GetIt.instance;
 
 void main() {
+  getIt.registerLazySingleton<MyTitlesStore>(() => MyTitlesStore());
   runApp(const MyApp());
 }
 
@@ -15,53 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Watchtracker"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Add a Movie or Series',
-        child: const Icon(Icons.add),
-      ),
+      home: const HomePage(),
     );
   }
 }

@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
 # Install Dependencies
 RUN sudo apt update \
-    && sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev openjdk-21-jdk inotify-tools
+    && sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev openjdk-21-jdk
 
 RUN mkdir sdks
 
