@@ -1,4 +1,5 @@
 import 'package:app/models/title.model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 
 // Include generated file
@@ -11,6 +12,24 @@ class MyTitlesStore = _MyTitlesStore with _$MyTitlesStore;
 abstract class _MyTitlesStore with Store {
   _MyTitlesStore() {
     _titles.addAll([
+      TitleModel(
+        title: "Joey Pics",
+        description: "Good content",
+        id: 69,
+        localImagePath: null,
+      ),
+      TitleModel(
+        title: "Dominion",
+        description: "Meteaters suck",
+        id: 420,
+        localImagePath: null,
+      ),
+      TitleModel(
+        title: "Dekarldent VODs",
+        description: "FCKAFD",
+        id: 161,
+        localImagePath: null,
+      ),
       TitleModel(
         title: "Joey Pics",
         description: "Good content",

@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 
 GetIt get getIt => GetIt.instance;
 
-void main() {
+void main() async {
   getIt.registerLazySingleton<MyTitlesStore>(() => MyTitlesStore());
   runApp(const MyApp());
 }

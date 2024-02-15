@@ -5,7 +5,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Dart-Code.flutter"
+        "Dart-Code.flutter",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },

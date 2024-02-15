@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
 # Install Dependencies
 RUN sudo apt update \
-    && sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev openjdk-21-jdk
+    && sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev openjdk-17-jdk gradle
 
 RUN mkdir sdks
 
@@ -12,6 +12,9 @@ RUN mkdir /sdks/android \
     && wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip \
     && unzip commandlinetools-linux-11076708_latest.zip \
     && sudo rm commandlinetools-linux-11076708_latest.zip \
+    && wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip \
+    && unzip platform-tools-latest-linux.zip \
+    && sudo rm platform-tools-latest-linux.zip \
     && yes | sudo cmdline-tools/bin/sdkmanager --sdk_root=/sdks/android --install "cmdline-tools;latest" \
     && chown -R vscode:vscode .
 
@@ -28,7 +31,7 @@ RUN yes | /sdks/flutter/bin/flutter doctor --android-licenses \
     && chown -R vscode:vscode /sdks/flutter
 
 # Update Path
-ENV PATH="${PATH}:/sdks/flutter/bin/:/sdks/android/cmdline-tools/latest/bin/"
+ENV PATH="${PATH}:/sdks/flutter/bin/:/sdks/android/cmdline-tools/latest/bin/:/sdks/android/platform-tools/"
 
 # Config Flutter
 RUN flutter config --android-sdk "/sdks/android/"

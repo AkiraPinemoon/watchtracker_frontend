@@ -12,7 +12,14 @@ class TitleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
-      return ListView.builder(
+      return GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 2 / 3,
+          mainAxisSpacing: 2.0,
+          crossAxisSpacing: 2.0,
+        ),
+        padding: const EdgeInsets.all(2.0),
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           final title = _myTitlesStore.titles[index];

@@ -8,9 +8,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: const SearchBar(
-          hintText: "Search Movie/Series",
-          leading: Icon(Icons.search),
+        flexibleSpace: const SafeArea(
+          child: SearchBar(
+            hintText: "Search Movie/Series",
+            leading: Icon(Icons.search),
+          ),
         ),
       ),
       body: TitleList(),
